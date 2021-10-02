@@ -1,0 +1,17 @@
+<title>Splashy Studio 2.0</title>
+<img src="ss2.jpg" width="555" height="555"><br><br>
+<b width="200" height="200">LOADING...</b>
+<style>
+    body {
+        text-align: center;
+        font-family: "Tw Cen MT";
+    }
+</style>
+<script>
+window.setTimeout(startup, 2000);
+function startup() {
+    if(window.location) {
+        window.location = 'effect.html' + window.location.hash;
+    }
+}
+</script>
