@@ -1,13 +1,13 @@
 {
     "name": "Splashy Studio 2.0",
-    "version": "2.0",
+    "version": "2.1",
     "description": "",
     "main": "main.js",
     "scripts": {
         "start": "electron .",
         "pack": "electron-builder --dir",
         "dist": "electron-builder",
-        "build": "electron-packager . SS2.0"
+        "build": "electron-packager . SS2.1"
     },
     "build": {
         "appId": "your.id",
