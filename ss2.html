@@ -48,6 +48,7 @@ body {
     height: 100%;
     padding-left: .5em;
     float: left;
+    margin-top: 6px;
 }
 #zoomIn {
     text-decoration: none;
@@ -190,8 +191,17 @@ body {
     font-family: "Trebuchet MS";
     font-weight: bold;
 }
+#themeSettingsButton {
+    cursor: pointer;
+    background: cornflowerblue;
+    color: aqua;
+    border-radius: 10px;
+    font-family: "Trebuchet MS";
+    font-weight: bolder;
+}
 #mode1:hover {color:#00cccc;background:#0080ff;border-color:black;}
 #mode2:hover {color:#00cccc;background:#0080ff;border-color:black;}
+#themeSettingsButton:hover {color:#00cccc;background:#0080ff;border-color:black;}
 .img-container {
     width: 50%;
     height: 50%;
@@ -245,6 +255,78 @@ body {
 .operation-btn:hover {background:#198cff;color:lightgray;}
 #select-text {background: #198cff;cursor:pointer;}
 #select-text:hover {background:#0080ff;color:lightgray;}
+#themeSettings {
+    background: white;
+    width: 1000px;
+    height: 1000px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: 125px;
+    border-radius: 25px;
+    display: none;
+    color: black;
+    position: fixed;
+    margin-top: -800px;
+}
+#closeThemeButton {
+    font-family: "Trebuchet MS";
+    border-color: black;
+    background: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+#closeThemeButton:hover {background:lightgrey;}
+#color1 {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background: teal;
+    border: 2px solid black;
+    margin-left: 485px;
+}
+#color2 {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background: #3399ff;
+    border: 2px solid black;
+    margin-left: 485px;
+}
+#color3 {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background: #0011ff;
+    border: 2px solid black;
+    margin-left: 485px;
+}
+#color4 {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background: cornflowerblue;
+    border: 2px solid black;
+    margin-left: 485px;
+}
+#color5 {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background: #006699;
+    border: 2px solid black;
+    margin-left: 485px;
+}
+#color1:hover {background:#212121;}
+#color2:hover {background:#212121;}
+#color3:hover {background:#212121;}
+#color4:hover {background:#212121;}
+#color5:hover {background:#212121;}
 </style>
 <nav id="navBar">
     <div id="showTitle" style="margin-top:6px"><b>Splashy Studio 2</b></div>
@@ -254,6 +336,7 @@ body {
         <div id="close" title="Close" onclick="window.close()"><b>&times;</b></div>
     </div>
 </nav><br><br>
+<button id="themeSettingsButton" onclick="openThemeSettings()">Theme Settings</button>
 <h3>EDITING MODES</h3>
 <button title="For making your own images" id="mode1" onclick="customImageMode()">Make Custom Image</button><br><br>
 <button title="For editing other images you have" id="mode2" onclick="editImageMode()">Edit Another Image</button><br><br>
@@ -303,6 +386,12 @@ body {
     </div>
 </div>
 <div class="cursor"></div>
+<nav id="themeSettings">
+    <br><h1>Theme Settings</h1>
+    <button onclick="closeThemeSettings()" id="closeThemeButton" title="Close Theme Settings">CLOSE &times;</button><br><br><br>
+    Nav Bar<br><br><div id="color1" title="Darker" onclick="makeNavBarDarker()"></div><div id="color2" title="Normal" onclick="makeNavBarNormal()"></div><br>
+    Background<br><br><div id="color5" title="Darker" onclick="makeBackgroundDarker()"></div><div id="color3" title="Normal" onclick="makeBackgroundNormal()"></div><div id="color4" title="Lighter" onclick="makeBackgroundLighter()"></div>
+</nav>
 <script>
 const colorCircle = document.querySelectorAll(".color-circle");
 let penSize=10;
@@ -454,6 +543,29 @@ function zoomEditCanvasNormally() {
 function zoomEditCanvasOut() {
     document.getElementById("foto-image").style.width = "250px";
     document.getElementById("foto-image").style.height = "250px";
+}
+function openThemeSettings() {
+    document.getElementById("themeSettings").style.display = "block";
+}
+function closeThemeSettings() {
+    document.getElementById("themeSettings").style.display = "none";
+}
+function makeNavBarDarker() {
+    document.getElementById("navBar").style.background = "teal";
+    document.getElementById("titleShown").style.color = "aqua";
+}
+function makeNavBarNormal() {
+    document.getElementById("navBar").style.background = "#3399ff";
+    document.getElementById("titleShown").style.color = "aqua";
+}
+function makeBackgroundDarker() {
+    document.body.style.background = "#006699";
+}
+function makeBackgroundNormal() {
+    document.body.style.background = "#0011ff";
+}
+function makeBackgroundLighter() {
+    document.body.style.background = "cornflowerblue";
 }
 </script>
 <script src="https://rawcdn.githack.com/kousik19/foto.js/d604b02c69b6f037875bc4a3050b85d776dc4659/foto.js"></script>
